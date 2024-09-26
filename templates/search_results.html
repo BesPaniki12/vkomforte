@@ -1,0 +1,40 @@
+{% extends 'includes/header.html' %}
+
+{% block title %}Результаты поиска{% endblock %}
+{% block description %}Результаты поиска для запроса {{ query }}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1>Результаты поиска для "{{ query }}"</h1>
+        
+        {% if post_results or article_results %}
+            {% if post_results %}
+                <h2>Посты</h2>
+                <ul>
+                    {% for post in post_results %}
+                        <li>
+                            <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            
+            {% if article_results %}
+                <h2>Статьи</h2>
+                <ul>
+                    {% for article in article_results %}
+                        <li>
+                            <a href="{% url 'article_post_detail' article.slug %}">{{ article.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <p>Нет результатов для вашего запроса.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% include 'includes/footer.html' %}

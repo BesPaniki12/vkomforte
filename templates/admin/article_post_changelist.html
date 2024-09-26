@@ -1,0 +1,25 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools %}
+    <style>
+        .object-tools {
+            display: flex;
+            gap: 10px; /* Расстояние между кнопками */
+        }
+        .object-tools a.button {
+            padding: 6px 12px; /* Регулировка отступов для кнопок */
+        }
+        .object-tools .import-button,
+        .object-tools .export-button,
+        .object-tools .google-sheets-import-button,
+        .object-tools .add-post-button {
+            margin-right: 10px; /* Регулировка правого отступа для кнопок */
+        }
+    </style>
+    <div class="object-tools">
+        <span><a href="import/" class="button import-button">Ипорт</a></span>
+        <span><a href="export/" class="button export-button">Экспорт</a></span>
+        <span><a href="{% url 'admin:blog_post_import_google_sheets' %}" class="button google-sheets-import-button">Ипорт в Google Sheets</a></span>
+        <span><a href="{% url 'admin:blog_post_add' %}" class="button add-post-button">Добавить статью</a></span>
+    </div>
+    {{ block.super }}
+{% endblock %}

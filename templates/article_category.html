@@ -1,0 +1,42 @@
+{% extends 'includes/header.html' %}
+
+{% load custom_filters %}
+
+{% block title %}{{ category.title }}{% endblock %}
+{% block description %}{{ category.description }}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                {% include 'breadcrumbs.html' %}
+                <h1 class="h2 mb-3">{{ category.h1 }}</h1>
+                {% comment %} <p>{{ category.description }}</p> {% endcomment %}
+                {% for post in page_obj %}
+                <article class="row mb-5">
+                    <div class="col-md-12">
+                        <h3 class="h5"><a class="post-title" href="{% url 'article_post_detail' post.slug %}">{{ post.h1 }}</a></h3>
+                        <ul class="list-inline post-meta mb-2">
+                            <li class="list-inline-item"><i class="ti-user mr-2"></i>{{ post.author }}</li>
+                            <li class="list-inline-item">{{ post.created_at|localize_date }}</li>
+                            <li class="list-inline-item"><a href="{% url 'article_category_detail' post.category.slug %}" class="ml-1">{{ post.category.name }}</a></li>
+                            <li class="list-inline-item">Теги:
+                                {% for tag in post.tags.all %}
+                                    <a href="{% url 'article_tagged' tag.slug %}" class="ml-1">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </li>
+                        </ul>
+                        <p>{{ post.content|markdown_to_plaintext|truncatewords:30|truncate_chars:200 }}</p>
+                    </div>
+                </article>
+                {% endfor %}
+                {% include "includes/pagination.html" with page_obj=page_obj %}
+            </div>
+            {% include 'includes/_sidebar_articles.html' %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% include 'includes/footer.html' %}

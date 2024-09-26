@@ -1,0 +1,32 @@
+// {
+//   "name": "your-project-name",
+//   "version": "1.0.0",
+//   "description": "",
+//   "main": "index.js",
+//   "scripts": {
+//     "build:css": "postcss static/plugins/bootstrap/bootstrap.min.css -o static/plugins/bootstrap/bootstrap.min.css && postcss static/css/custom.css -o static/css/custom.min.css && postcss static/css/style.css -o static/css/style.min.css && postcss static/plugins/themify-icons/themify-icons.css -o static/plugins/themify-icons/themify-icons.min.css && postcss static/plugins/slick/slick.css -o static/plugins/slick/slick.min.css",
+//     "watch:css": "postcss static/plugins/bootstrap/bootstrap.min.css -o static/plugins/bootstrap/bootstrap.min.css --watch && postcss static/css/custom.css -o static/css/custom.min.css --watch && postcss static/css/style.css -o static/css/style.min.css --watch && postcss static/plugins/themify-icons/themify-icons.css -o static/plugins/themify-icons/themify-icons.min.css --watch && postcss static/plugins/slick/slick.css -o static/plugins/slick/slick.min.css --watch"
+//   },
+//   "author": "",
+//   "license": "ISC",
+//   "devDependencies": {
+//     "autoprefixer": "^10.0.0",
+//     "cssnano": "^4.0.0",
+//     "postcss": "^8.0.0",
+//     "postcss-cli": "^8.0.0",
+//     "postcss-modules": "^4.0.0"
+//   }
+// }
+
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "echo 'CSS build skipped'",
+    "watch:css": "echo 'CSS watch skipped'"
+  },
+  "author": "",
+  "license": "ISC"
+}

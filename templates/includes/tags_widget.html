@@ -1,0 +1,28 @@
+<div class="widget">
+    <h5 class="widget-title"><span>Теги</span></h5>
+    <div class="tags-wrapper">
+        <ul class="list-inline widget-list-inline">
+            {% for tag in tags %}
+            <li class="list-inline-item">
+                <a href="{% url 'tagged' tag.slug %}">{{ tag.name }} <small>({{ tag.post_count }})</small></a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        {% if extra_tags %}
+        <div class="collapse" id="collapseTags-{{ forloop.counter }}">
+            <ul class="list-inline widget-list-inline">
+                {% for tag in extra_tags %}
+                <li class="list-inline-item">
+                    <a href="{% url 'tagged' tag.slug %}">{{ tag.name }} <small>({{ tag.post_count }})</small></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Кнопка для сворачивания/разворачивания тегов -->
+        <a class="btn btn-link show-more-button" data-toggle="collapse" href="#collapseTags-{{ forloop.counter }}" role="button" aria-expanded="false" aria-controls="collapseTags-{{ forloop.counter }}">
+            Показать еще
+        </a>
+        {% endif %}
+    </div>
+</div>

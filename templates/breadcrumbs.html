@@ -1,0 +1,17 @@
+<!-- breadcrumbs.html -->
+<ul class="list-inline post-meta mb-2">
+    <li class="list-inline-item">
+        <a href="/">🏠</a>
+    </li>
+    {% for breadcrumb in breadcrumbs %}
+        {% if forloop.first %}
+            <li class="list-inline-item"><i class="ti-angle-right mr-2"></i></li>
+        {% endif %}
+        {% if not forloop.last %}
+            <li class="list-inline-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+        {% else %}
+            {% comment %} <li class="list-inline-item"><i class="ti-angle-right mr-2"></i></li>
+            <li class="list-inline-item">{{ breadcrumb.name }}</li> {% endcomment %}
+        {% endif %}
+    {% endfor %}
+</ul>

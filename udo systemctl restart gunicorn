@@ -1,0 +1,40 @@
+[0;1;31m●[0m gunicorn.service - gunicorn daemon
+   Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; vendor preset: enabled)
+   Active: [0;1;31mfailed[0m (Result: exit-code) since Fri 2024-08-30 17:20:39 MSK; 5min ago
+  Process: 231 ExecStart=/var/www/vkomforte.su/data/www/vkomforte.su/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 myproject.wsgi:application [0;1;31m(code=exited, status=1/FAILURE)[0m
+ Main PID: 231 (code=exited, status=1/FAILURE)
+
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:     self.halt(reason=inst.reason, exit_status=inst.exit_status)
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:   File "/var/www/vkomforte.su/data/www/vkomforte.su/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 342, in halt
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:     self.stop()
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:   File "/var/www/vkomforte.su/data/www/vkomforte.su/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 396, in stop
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:     time.sleep(0.1)
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:   File "/var/www/vkomforte.su/data/www/vkomforte.su/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:     self.reap_workers()
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:   File "/var/www/vkomforte.su/data/www/vkomforte.su/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 530, in reap_workers
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]:     raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+Aug 30 17:20:39 scc36647a.fastvps-server.com gunicorn[231]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Aug 13 13:20:43 scc36647a.fastvps-server.com systemd[1]: Stopping gunicorn daemon...
+Aug 13 13:20:44 scc36647a.fastvps-server.com systemd[1]: gunicorn.service: Succeeded.
+Aug 13 13:20:44 scc36647a.fastvps-server.com systemd[1]: Stopped gunicorn daemon.
+Aug 13 13:20:44 scc36647a.fastvps-server.com systemd[1]: Started gunicorn daemon.
+Aug 14 22:08:25 scc36647a.fastvps-server.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mgunicorn.service: Main process exited, code=killed, status=9/KILL[0m
+Aug 14 22:08:25 scc36647a.fastvps-server.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mgunicorn.service: Failed with result 'signal'.[0m
+Aug 15 09:53:29 scc36647a.fastvps-server.com systemd[1]: Started gunicorn daemon.
+Aug 15 12:17:57 scc36647a.fastvps-server.com systemd[1]: Stopping gunicorn daemon...
+Aug 15 12:17:57 scc36647a.fastvps-server.com systemd[1]: gunicorn.service: Succeeded.
+Aug 15 12:17:57 scc36647a.fastvps-server.com systemd[1]: Stopped gunicorn daemon.
+Aug 15 12:17:57 scc36647a.fastvps-server.com systemd[1]: Started gunicorn daemon.
+Aug 15 13:02:24 scc36647a.fastvps-server.com systemd[1]: Stopping gunicorn daemon...
+Aug 15 13:02:25 scc36647a.fastvps-server.com systemd[1]: gunicorn.service: Succeeded.
+Aug 15 13:02:25 scc36647a.fastvps-server.com systemd[1]: Stopped gunicorn daemon.
+Aug 15 13:02:26 scc36647a.fastvps-server.com systemd[1]: Started gunicorn daemon.
+Aug 15 13:23:03 scc36647a.fastvps-server.com systemd[1]: Stopping gunicorn daemon...
+Aug 15 13:23:04 scc36647a.fastvps-server.com systemd[1]: gunicorn.service: Succeeded.
+Aug 15 13:23:04 scc36647a.fastvps-server.com systemd[1]: Stopped gunicorn daemon.
+Aug 15 13:23:04 scc36647a.fastvps-server.com systemd[1]: Started gunicorn daemon.
+Aug 15 13:23:07 scc36647a.fastvps-server.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mgunicorn.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 15 13:23:07 scc36647a.fastvps-server.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mgunicorn.service: Failed with result 'exit-code'.[0m
+Aug 15 13:36:11 scc36647a.fastvps-server.com systemd[1]: Started gunicorn daemon.
+Aug 15 13:36:13 scc36647a.fastvps-server.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mgunicorn.service: Main process exited, code=exited, status=3/NOTIMPLEMENTED[0m
+Au

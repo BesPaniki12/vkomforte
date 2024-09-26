@@ -1,0 +1,31 @@
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',  # Ваше приложение
+    'tagulous',
+    'tagulous.models',
+]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vkomforte_djan',
+        'USER': 'vkomforte_d_usr',
+        'PASSWORD': 'xgwvgT52qoheZdrM',
+        'HOST': '5.183.188.117',
+        'PORT': '5432',
+    }
+}
+
+ALLOWED_HOSTS = ['vkomforte.su', 'www.vkomforte.su']
+
+CSRF_TRUSTED_ORIGINS = ['https://vkomforte.su', 'https://www.vkomforte.su']

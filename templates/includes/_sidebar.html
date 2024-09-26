@@ -1,0 +1,26 @@
+<aside class="col-lg-4">
+    <!-- Search -->
+    <div class="widget">
+        <h5 class="widget-title"><span>Поиск</span></h5>
+        <form action="{% url 'search' %}" class="widget-search" method="get">
+            <input id="search-query" name="q" type="search" placeholder="Что найти?">
+            <button type="submit"><i class="ti-search"></i></button>
+        </form>
+    </div>
+
+    <!-- categories -->
+    <div class="widget">
+        <h5 class="widget-title"><span>Категории</span></h5>
+        <ul class="list-unstyled widget-list">
+            {% for category in categories %}
+            <li><a href="{% url 'category_detail' category.slug %}" class="d-flex">{{ category.name }}
+                <small class="ml-auto">({{ category.posts.count }})</small></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+<!-- tags -->
+{% include 'includes/tags_widget.html' %}
+</aside>

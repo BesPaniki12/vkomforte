@@ -1,0 +1,24 @@
+{% extends 'includes/header.html' %}
+
+{% load custom_filters %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <article class="row mb-4">
+            <div class="col-lg-10 mx-auto mb-4">
+                {% include 'breadcrumbs.html' %}
+                <h1 class="h2 mb-3">{{ page.h1 }}</h1>
+                <div class="content">
+                    <p>{{ page.content|safe }}</p>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+{% endblock %}
+
+{% include 'includes/footer.html' %}

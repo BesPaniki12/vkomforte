@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Главная{% endblock %}</title>
+        <!-- Canonical URL -->
+        <link rel="canonical" href="{{ canonical_url }}">
+
+        {% if prev_url %}
+            <link rel="prev" href="?page={{ prev_url }}">
+        {% endif %}
+        {% if next_url %}
+            <link rel="next" href="?page={{ next_url }}">
+        {% endif %}
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="{% block description %}Default Description{% endblock %}">
+    {% comment %} <meta name="author" content="Themefisher"> {% endcomment %}
+
+    {% include 'includes/head_includes.html' %}
+    {% load static %}
+</head>
+<body>
+<!-- navigation -->
+<header class="sticky-top bg-white border-bottom border-default">
+   <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+         <a class="navbar-brand" href="/">
+            <img class="img-fluid" width="150px" src="{% static 'images/logo.png' %}" alt="Логотип">
+         </a>
+         <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+            <i class="ti-menu"></i>
+         </button>
+         <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Стоимость готовой</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Заказать оригинальную</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/page/o-nas/">О нас</a>
+               </li>
+            </ul>
+            <div class="search px-4">
+               {% comment %} <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button> {% endcomment %}
+               <div class="search-wrapper" id="searchWrapper" style="display: none;">
+                  <form action="{% url 'search' %}" method="get" class="h-100">
+                     <input class="search-box pl-4" id="search-query" name="q" type="search" placeholder="Что ищем?">
+                     <button type="submit" class="btn btn-primary">Искать</button>
+                  </form>
+                  <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+               </div>
+            </div>
+         </div>
+      </nav>
+   </div>
+</header>
+
+{% block content %}{% endblock %}
+
+{% include 'includes/footer.html' %}
+</body>
+</html>
