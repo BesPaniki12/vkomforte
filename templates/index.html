@@ -1,13 +1,7 @@
 {% extends 'includes/header.html' %}
-
 {% load custom_filters %}
-
-{% block title %}Вкомфорте - Каталог готовых студенческих работ — В банке 7612220 работ с уникальностью от 85% - Отзывы: 4,5{% endblock %}
-{% block description %}Более 7612220 тысяч рефератов, курсовых, дипломных и контрольных работ по различным дисциплинам: история, психология, экономика, менеджмент, философия, право и многое другое. Отзывы: 4,5, высокая уникальность и возможность доработать по вашим запросам{% endblock %}
-
-
-
-
+{% block title %}Вкомфорте - Каталог готовых студенческих работ — В банке {{ total_posts }} работ с уникальностью от 85% - Отзывы: 4,5{% endblock %}
+{% block description %}Более {{ total_posts }} тысяч рефератов, курсовых, дипломных и контрольных работ по различным дисциплинам: история, психология, экономика, менеджмент, философия, право и многое другое. Отзывы: 4,5, высокая уникальность и возможность доработать по вашим запросам{% endblock %}
 {% block content %}
 <section class="section">
     <div class="container">
@@ -18,7 +12,6 @@
                     <div class="col-md-12">
                         <h3 class="h5"><a class="post-title" href="{% url 'post_detail' post.slug %}">{{ post.h1 }}</a></h3>
                         <ul class="list-inline post-meta mb-2">
-                            <li class="list-inline-item"><i class="ti-user mr-2"></i>{{ post.author }}</li>
                             <li class="list-inline-item">{{ post.created_at|localize_date }}</li>
                             <li class="list-inline-item"><a href="{% url 'category_detail' post.category.slug %}" class="ml-1">{{ post.category.name }}</a></li>
                             <li class="list-inline-item">Теги:
@@ -27,7 +20,7 @@
                                 {% endfor %}
                             </li>
                         </ul>
-                        <p>{{ post.content|markdown_to_plaintext|truncatewords:30|truncate_chars:200 }}</p>
+                        <p>{{ post.processed_content }}</p>
                     </div>
                 </article>
                 {% endfor %}
@@ -38,5 +31,4 @@
     </div>
 </section>
 {% endblock %}
-
 {% include 'includes/footer.html' %}

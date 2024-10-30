@@ -17,5 +17,11 @@ urlpatterns = [
     path('custom_sitemap.xml', sitemap, {'sitemaps': sitemaps_dict}, name='custom_sitemap'),
 ]
 
+# Подключаем debug_toolbar и Silk только если DEBUG = True
 if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        path('__debug__/', include('debug_toolbar.urls')),
+        path('silk/', include('silk.urls', namespace='silk')),
+    ]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

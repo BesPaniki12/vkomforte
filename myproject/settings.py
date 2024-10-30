@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'tagulous',
     'django.contrib.sitemaps',
     'compressor',  # Добавляем Django Compressor
+    'debug_toolbar',
+    'silk',
+    'django_extensions',
 ]
 
 # Определяем путь для хранения сжатых файлов
@@ -69,7 +72,10 @@ LOGGING = {
 }
 
 
-
+INTERNAL_IPS = [
+    '127.0.0.1',  # локальный адрес
+    '5.183.188.117',  # IP вашего сервера
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,6 +85,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'silk.middleware.SilkyMiddleware',
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -167,7 +175,12 @@ CKEDITOR_5_CONFIGS = {
 }
 
 
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
 
 SERIALIZATION_MODULES = {
     'xml':    'tagulous.serializers.xml_serializer',

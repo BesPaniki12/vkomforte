@@ -8,9 +8,8 @@
             </li>
             {% endfor %}
         </ul>
-
         {% if extra_tags %}
-        <div class="collapse" id="collapseTags-{{ forloop.counter }}">
+        <div class="collapse" id="collapseTags">
             <ul class="list-inline widget-list-inline">
                 {% for tag in extra_tags %}
                 <li class="list-inline-item">
@@ -20,7 +19,7 @@
             </ul>
         </div>
         <!-- Кнопка для сворачивания/разворачивания тегов -->
-        <a class="btn btn-link show-more-button" data-toggle="collapse" href="#collapseTags-{{ forloop.counter }}" role="button" aria-expanded="false" aria-controls="collapseTags-{{ forloop.counter }}">
+        <a class="btn btn-link show-more-button" data-toggle="collapse" href="#collapseTags" role="button" aria-expanded="false" aria-controls="collapseTags">
             Показать еще
         </a>
         {% endif %}
